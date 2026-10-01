@@ -1,0 +1,39 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+    {
+      "type": "shell",
+      "command": "deno",
+      "args": [
+        "task",
+        "start"
+      ],
+      "problemMatcher": [
+        "$deno"
+      ],
+      "label": "deno: start",
+      "detail": "$ deno task start",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "type": "shell",
+      "command": "deno",
+      "args": [
+        "task",
+        "build"
+      ],
+      "problemMatcher": [
+        "$deno"
+      ],
+      "label": "deno: build",
+      "detail": "$ deno task build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "name": "Deno",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "runArgs": [
+    "--name",
+    "deno-openapi"
+  ],
+  // GitHub CLI は Dockerfile に手書きせず、公式Featureで導入
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1.1.2": {}
+  },
+  "postAttachCommand": "deno task init",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "deno.enable": true,
+        "deno.lint": true,
+        "deno.suggest.autoImports": true,
+        "editor.defaultFormatter": "denoland.vscode-deno",
+        "deno.path": "/usr/bin/deno",
+        "deno.cache": "/home/vscode/.cache/deno"
+      },
+      "extensions": [
+        "denoland.vscode-deno",
+        "aaron-bond.better-comments",
+        "vivaxy.vscode-conventional-commits",
+        "EditorConfig.EditorConfig",
+        "usernamehw.errorlens",
+        "mhutchie.git-graph",
+        "donjayamanne.githistory",
+        "eamodio.gitlens",
+        "ryu1kn.partial-diff",
+        "hbenl.vscode-test-explorer",
+        "wayou.vscode-todo-highlight",
+        "redhat.vscode-yaml",
+        "justjavac.vscode-deno-extensionpack",
+        "tamasfe.even-better-toml",
+        "RapidAPI.vscode-rapidapi-client",
+        "github.vscode-github-actions",
+        "rangav.vscode-thunder-client",
+        "jbockle.jbockle-format-files",
+        "FanaticPythoner.better-todo-tree",
+        "AndrewButson.vscode-openapi-viewer"
+      ]
+    }
+  },
+  "remoteUser": "vscode"
+}

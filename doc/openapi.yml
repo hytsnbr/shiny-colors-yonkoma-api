@@ -1,0 +1,207 @@
+openapi: 3.0.3
+info:
+  title: シャニマス4コマ検索
+  version: 0.0.0
+  description: |
+    シャニマス（enza, シャニソン, その他）の4コマ漫画について登場人物・タイトル等で検索を行います。  
+    検索結果にはタイトル、登場人物、話数、投稿元のURL、プラットフォームなどを含みます。
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+
+servers:
+  - url: http://localhost:8080/api
+    description: ローカル環境
+
+paths:
+  /list:
+    get:
+      summary: 指定条件に応じた検索結果を返却します
+      description: |
+        登場人物、タイトル、話数などの条件に応じて検索を行います。  
+        該当する4コマ漫画が存在しない場合は空配列を返却します。
+      tags: []
+      deprecated: false
+      parameters:
+        - name: title
+          in: query
+          description: |
+            4コマ漫画のタイトル  
+            部分一致で検索を行います
+          required: false
+          allowEmptyValue: false
+          schema:
+            $ref: "#/components/schemas/title"
+
+        - name: episodeNo
+          in: query
+          description: |
+            4コマ漫画の話数  
+            完全一致で検索を行いますが、通常回や特別回がある都合上、指定しても複数件の結果が返却される場合があります
+          required: false
+          allowEmptyValue: false
+          schema:
+            $ref: "#/components/schemas/episodeNo"
+
+        - name: characters
+          in: query
+          description: |
+            4コマ漫画に登場するキャラ  
+            指定されたキャラのうち、いずれか1人が含まれる4コマ漫画情報が返却されます
+          required: false
+          style: form
+          explode: false
+          schema:
+            $ref: "#/components/schemas/characters"
+
+        - name: platform
+          in: query
+          description: |
+            4コマ漫画のゲームプラットフォーム  
+            指定されたプラットフォームのいずれかに属する4コマ漫画情報が返却されます
+          required: false
+          style: form
+          explode: false
+          schema:
+            $ref: "#/components/schemas/platform"
+
+      responses:
+        "200":
+          description: 正常終了
+          $ref: "#/components/responses/Successful"
+
+        "400":
+          description: リクエスト情報チェックエラー
+          $ref: "#/components/responses/ClientError"
+
+        "500":
+          description: システムエラー
+          $ref: "#/components/responses/ServerError"
+
+  /info:
+    get:
+      summary: 4コマ漫画データリストの詳細情報を返却します
+      description: 呼び出し時点での4コマ漫画データリストの詳細情報を返却します
+      tags: []
+      deprecated: false
+      parameters: []
+      responses:
+        "200":
+          description: 正常終了
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  timestamp:
+                    type: string
+                    pattern: \d{16}
+                    description: データ取得時のタイムスタンプ（形式：YYYYMMDDhhmmddss）
+                  total:
+                    type: integer
+                    minimum: 1
+                    description: データリストに含まれる4コマ漫画の総件数
+
+components:
+  responses:
+    Successful:
+      description: 正常終了時のレスポンス
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/4KomaData"
+    ClientError:
+      description: HTTPステータス4xx番台のレスポンス
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    ServerError:
+      description: HTTPステータス5xx番台のレスポンス
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+
+  schemas:
+    title:
+      type: string
+      description: 4コマ漫画のタイトル
+    episodeNo:
+      type: integer
+      description: 4コマ漫画の話数
+      minimum: 0
+    platform:
+      type: array
+      description: 4コマ漫画のゲームプラットフォーム分類
+      items:
+        type: string
+        minimum: 1
+        enum:
+          - enza
+          - Song-for-Prism
+          - その他
+    url:
+      type: string
+      description: 4コマ漫画の投稿先URL
+      format: uri
+      example:
+        - https://x.com/imassc_official/status/962234684850622464
+    characters:
+      type: array
+      description: 4コマ漫画に登場するキャラ
+      items:
+        type: string
+        minimum: 1
+        enum:
+          - 櫻木真乃
+          - 風野灯織
+          - 八宮めぐる
+          - 月岡恋鐘
+          - 田中摩美々
+          - 白瀬咲耶
+          - 三峰結華
+          - 幽谷霧子
+          - 小宮果穂
+          - 園田智代子
+          - 西城樹里
+          - 杜野凛世
+          - 有栖川夏葉
+          - 大崎甘奈
+          - 大崎甜花
+          - 桑山千雪
+          - 芹沢あさひ
+          - 黛冬優子
+          - 和泉愛依
+          - 浅倉透
+          - 樋口円香
+          - 福丸小糸
+          - 市川雛菜
+          - 七草にちか
+          - 緋田美琴
+          - 斑鳩ルカ
+          - 鈴木羽那
+          - 郁田はるき
+          - プロデューサー
+          - 七草はづき
+          - 社長
+    4KomaData:
+      type: object
+      properties:
+        title:
+          $ref: "#/components/schemas/title"
+        episodeNo:
+          $ref: "#/components/schemas/episodeNo"
+        url:
+          $ref: "#/components/schemas/url"
+        characters:
+          $ref: "#/components/schemas/characters"
+        platform:
+          $ref: "#/components/schemas/platform"
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
