@@ -1,5 +1,5 @@
 import type { YonkomaData } from "@/model/YonkomaData.ts";
-import { getTime } from "date-fns"
+import { getTime } from "date-fns";
 
 export class ApiResponse {
   timestamp: number;
