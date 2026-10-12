@@ -1,9 +1,126 @@
 [
-    { "episodeNo": 1, "title": "フェス準備", "urls": ["https://shinycolors.enza.fun/comic/20001", "https://x.com/imassc_official/status/1020971716800020480" ]},
-    { "episodeNo": 2, "title": "気合", "urls": ["https://shinycolors.enza.fun/comic/20002" ]},
-    { "episodeNo": 3, "title": "作戦", "urls": ["https://shinycolors.enza.fun/comic/20003" ]},
-    { "episodeNo": 4, "title": "3人の世界", "urls": ["https://shinycolors.enza.fun/comic/20004" ]},
-    { "episodeNo": 5, "title": "団結力再び", "urls": ["https://shinycolors.enza.fun/comic/20005" ]},
-    { "episodeNo": 6, "title": "好きなところ", "urls": ["https://shinycolors.enza.fun/comic/20006" ]},
-    { "episodeNo": 7, "title": "イルミネーション", "urls": ["https://shinycolors.enza.fun/comic/20007", "https://x.com/imassc_official/status/1073518212111785984" ]}
+  {
+    "episodeNo": 1,
+    "title": "フェス準備",
+    "urls": [
+      "https://shinycolors.enza.fun/comic/20001",
+      "https://x.com/imassc_official/status/1020971716800020480"
+    ],
+    "characters": [
+      "七草はづき",
+      "社長"
+    ],
+    "platform": "enza"
+  },
+  {
+    "episodeNo": 2,
+    "title": "気合",
+    "urls": [
+      "https://shinycolors.enza.fun/comic/20002"
+    ],
+    "characters": [
+      "櫻木真乃",
+      "風野灯織",
+      "八宮めぐる"
+    ],
+    "platform": "enza"
+  },
+  {
+    "episodeNo": 3,
+    "title": "作戦",
+    "urls": [
+      "https://shinycolors.enza.fun/comic/20003"
+    ],
+    "characters": [
+      "月岡恋鐘",
+      "田中摩美々",
+      "白瀬咲耶",
+      "三峰結華",
+      "幽谷霧子"
+    ],
+    "platform": "enza"
+  },
+  {
+    "episodeNo": 4,
+    "title": "3人の世界",
+    "urls": [
+      "https://shinycolors.enza.fun/comic/20004"
+    ],
+    "characters": [
+      "大崎甘奈",
+      "大崎甜花",
+      "桑山千雪"
+    ],
+    "platform": "enza"
+  },
+  {
+    "episodeNo": 5,
+    "title": "団結力再び",
+    "urls": [
+      "https://shinycolors.enza.fun/comic/20005"
+    ],
+    "characters": [
+      "小宮果穂",
+      "園田智代子",
+      "西城樹里",
+      "杜野凛世",
+      "有栖川夏葉"
+    ],
+    "platform": "enza"
+  },
+  {
+    "episodeNo": 6,
+    "title": "好きなところ",
+    "urls": [
+      "https://shinycolors.enza.fun/comic/20006"
+    ],
+    "characters": [
+      "櫻木真乃",
+      "風野灯織",
+      "八宮めぐる"
+    ],
+    "platform": "enza"
+  },
+  {
+    "episodeNo": 7,
+    "title": "イルミネーション",
+    "urls": [
+      "https://shinycolors.enza.fun/comic/20007",
+      "https://x.com/imassc_official/status/1073518212111785984"
+    ],
+    "characters": [
+      "櫻木真乃",
+      "風野灯織",
+      "八宮めぐる"
+    ],
+    "platform": "enza"
+  },
+  {
+    "episodeNo": 8,
+    "title": "セブン-イレブン事情",
+    "urls": [
+      "https://shinycolors.enza.fun/comic/20008",
+      "https://x.com/711SEJ/status/1664089385799933952"
+    ],
+    "characters": [
+      "芹沢あさひ",
+      "黛冬優子",
+      "和泉愛依"
+    ],
+    "platform": "その他"
+  },
+  {
+    "episodeNo": 9,
+    "title": "新人店長",
+    "urls": [
+      "https://shinycolors.enza.fun/comic/20009",
+      "https://x.com/imassc_official/status/1664154811523284994"
+    ],
+    "characters": [
+      "芹沢あさひ",
+      "黛冬優子",
+      "和泉愛依"
+    ],
+    "platform": "その他"
+  }
 ]
